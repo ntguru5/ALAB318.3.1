@@ -2,11 +2,13 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const usersRouter = require("./routes/users.js")
-const postsRouter = require("./routes/posts.js")
-const error = require('./utilities/error.js')
-const path = require('path')
+const usersRouter = require("./routes/users.js");
+const postsRouter = require("./routes/posts.js");
+const commentsRouter = require("./routes/comments.js");
+const error = require('./utilities/error.js');
+const path = require('path');
 
+app.use('/api/comments', commentsRouter);
 
 // Middleware
 app.use(express.urlencoded({ extended: true }))
